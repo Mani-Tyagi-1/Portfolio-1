@@ -52,7 +52,7 @@ const Hero = () => {
     <>
       <section
         id="home"
-        className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden"
+        className="relative pt-20 min-h-screen flex items-center bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden"
       >
         {/* Moving background elements */}
         {[...Array(5)].map((_, i) => (
@@ -80,13 +80,13 @@ const Hero = () => {
           />
         ))}
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto px-6 relative z-10  hidden md:block">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
-              className="space-y-6"
+              className="space-y-6 text-center md:text-left"
             >
               <motion.div variants={fadeInUp} className="inline-block">
                 <motion.span
@@ -100,14 +100,14 @@ const Hero = () => {
 
               <motion.h1
                 variants={fadeInUp}
-                className="text-5xl md:text-6xl font-bold leading-tight"
+                className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight"
               >
                 Hi, I'm <span className="text-blue-500">Mani Tyagi</span>
               </motion.h1>
 
               <motion.p
                 variants={fadeInUp}
-                className="text-xl text-gray-300 max-w-lg"
+                className="text-lg sm:text-xl text-gray-300 max-w-lg mx-auto md:mx-0"
               >
                 I build intuitive and scalable web applications with the MERN
                 stack, focusing on creating exceptional user experiences.
@@ -115,7 +115,7 @@ const Hero = () => {
 
               <motion.div
                 variants={fadeInUp}
-                className="flex flex-wrap gap-4 pt-4"
+                className="flex flex-wrap justify-center md:justify-start gap-4 pt-4"
               >
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -144,7 +144,7 @@ const Hero = () => {
 
               <motion.div
                 variants={fadeInUp}
-                className="flex items-center gap-4 pt-4"
+                className="flex justify-center md:justify-start items-center gap-4 pt-4"
               >
                 <motion.a
                   href="https://github.com/Mani-Tyagi-1"
@@ -197,9 +197,9 @@ const Hero = () => {
                 type: "spring",
                 stiffness: 100,
               }}
-              className="relative"
+              className="relative max-w-xs sm:max-w-sm md:max-w-md mx-auto"
             >
-              <div className="aspect-square max-w-md mx-auto relative">
+              <div className="aspect-square relative">
                 <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-3xl transform -translate-x-6 translate-y-6"></div>
                 <motion.div
                   className="bg-gradient-to-br from-blue-600 to-violet-600 absolute -inset-1 rounded-full opacity-70"
@@ -276,9 +276,209 @@ const Hero = () => {
           </div>
         </div>
 
+        
+        {/* Mobile view */}
+        <div className="container mx-auto px-4 relative z-10  md:hidden block">
+          <div className="flex flex-col gap-16 items-center">
+            {/* Profile Image Section */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.3,
+                type: "spring",
+                stiffness: 100,
+              }}
+              className="relative w-48 mb-6"
+            >
+              <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-2xl transform -translate-x-4 translate-y-4"></div>
+              <motion.div
+                className="bg-gradient-to-br from-blue-600 to-violet-600 absolute -inset-1 rounded-full opacity-70"
+                animate={{
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                }}
+              ></motion.div>
+              <motion.div
+                whileHover={{ scale: 1.03, rotate: 2 }}
+                className="relative bg-gray-900 rounded-full overflow-hidden border-4 border-gray-800 aspect-square"
+              >
+                <img
+                  src={Profile}
+                  alt="Your Profile"
+                  className="h-full w-full object-cover"
+                />
+              </motion.div>
+
+              {/* Floating badges - smaller and closer to image on mobile */}
+              <motion.div
+                className="absolute -top-2 -right-2 bg-white text-gray-900 py-1 px-2 rounded-lg font-medium text-xs shadow-lg"
+                animate={{
+                  y: [0, -6, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                }}
+              >
+                React.js
+              </motion.div>
+
+              <motion.div
+                className="absolute bottom-2 -left-4 bg-white text-gray-900 py-1 px-2 rounded-lg font-medium text-xs shadow-lg"
+                animate={{
+                  y: [0, 6, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
+              >
+                MongoDB
+              </motion.div>
+
+              <motion.div
+                className="absolute -bottom-2 right-4 bg-white text-gray-900 py-1 px-2 rounded-lg font-medium text-xs shadow-lg"
+                animate={{
+                  y: [0, 6, 0],
+                }}
+                transition={{
+                  duration: 3.5,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                  delay: 0.5,
+                }}
+              >
+                Node.js
+              </motion.div>
+            </motion.div>
+
+            {/* Text content section */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
+              className="space-y-4 text-center"
+            >
+              <motion.div variants={fadeInUp} className="inline-block">
+                <motion.span
+                  className="inline-block py-1 px-3 bg-blue-600 text-sm font-medium rounded-full"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Full-Stack Developer
+                </motion.span>
+              </motion.div>
+
+              <motion.h1
+                variants={fadeInUp}
+                className="text-3xl font-bold leading-tight"
+              >
+                Hi, I'm <span className="text-blue-500">Mani Tyagi</span>
+              </motion.h1>
+
+              <motion.p
+                variants={fadeInUp}
+                className="text-base text-gray-300 max-w-sm mx-auto"
+              >
+                I build intuitive and scalable web applications with the MERN
+                stack, focusing on creating exceptional user experiences.
+              </motion.p>
+
+              {/* Buttons */}
+              <motion.div
+                variants={fadeInUp}
+                className="flex justify-center gap-3 pt-4 flex-wrap"
+              >
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium flex items-center gap-1 transition-colors text-sm"
+                  onClick={() => {
+                    const element = document.getElementById("projects");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
+                  View Projects <ArrowRight size={14} />
+                </motion.button>
+
+                <motion.a
+                  href="/resume.pdf"
+                  download
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-4 py-2 border border-blue-500 text-blue-500 hover:bg-blue-500/10 rounded-lg font-medium flex items-center gap-1 transition-colors text-sm"
+                >
+                  Download Resume <ExternalLink size={14} />
+                </motion.a>
+              </motion.div>
+
+              {/* Social Icons */}
+              {/* <motion.div
+                variants={fadeInUp}
+                className="flex justify-center items-center gap-3 pt-4"
+              >
+                <motion.a
+                  href="https://github.com/Mani-Tyagi-1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors"
+                >
+                  <Github size={18} />
+                </motion.a>
+
+                <motion.a
+                  href="https://www.linkedin.com/in/mani-tyagi-958415232z/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors"
+                >
+                  <Linkedin size={18} />
+                </motion.a>
+
+                <motion.a
+                  href="mailto:manityagi1919@gmail.com"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors"
+                >
+                  <Mail size={18} />
+                </motion.a>
+
+                <motion.a
+                  href="#projects"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors"
+                >
+                  <Code size={18} />
+                </motion.a>
+              </motion.div> */}
+            </motion.div>
+          </div>
+        </div>
+
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 md:flex flex-col items-center hidden  "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
@@ -298,8 +498,6 @@ const Hero = () => {
           />
         </motion.div>
       </section>
-
-     
     </>
   );
 };

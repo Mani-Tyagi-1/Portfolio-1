@@ -87,7 +87,7 @@ const SkillsSection = () => {
   return (
     <section
       id="skills"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gray-900 text-white py-16 px-4"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gray-900 text-white  px-4 pt-16"
     >
       {/* Animated background particles */}
       {particles.map((i) => (
@@ -262,7 +262,7 @@ const SkillsSection = () => {
       </div>
 
       <motion.div
-        className="h-2  w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent mt-7"
+        className="h-2  w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent mt-10"
         initial={{ scaleX: 0, opacity: 0 }}
         whileInView={{ scaleX: 1, opacity: 0.5 }}
         transition={{ duration: 1.2 }}

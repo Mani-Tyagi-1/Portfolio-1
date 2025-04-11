@@ -283,7 +283,7 @@ const Achievements = () => {
   const modalError = modalData.error;
 
   return (
-    <section className="relative pt-7 overflow-hidden bg-gray-50 dark:bg-gray-900 min-h-screen">
+    <section className="relative pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900 min-h-screen">
       <AnimatedBackground />
 
       <motion.div

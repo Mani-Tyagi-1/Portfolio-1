@@ -226,7 +226,6 @@ const Navbar = () => {
                         : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
                     }`}
                   >
-                    <span>{link.icon}</span>
                     <span>{link.name}</span>
                     <motion.div
                       animate={{
