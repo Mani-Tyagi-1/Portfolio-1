@@ -1,4 +1,4 @@
-# Personal Portfolio Website
+# DevCraft - Personal Portfolio Website 
 
 [![React](https://img.shields.io/badge/React-18.2.0-blue?style=flat-square&logo=react)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-5.1.4-purple?style=flat-square&logo=vite)](https://vitejs.dev/)
