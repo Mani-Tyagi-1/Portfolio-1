@@ -3,6 +3,12 @@ import { motion } from "framer-motion";
 import Dev from "/Dev.png";
 import Imaginify from "../../public/Imaginify.png";
 import EBharat from "/EBharat.png";
+import Milesofsmiles from "/Milesofsmiles.png";
+import Modrika from "/Modrika.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/autoplay";
 
 // Enhanced ProjectCard component
 const ProjectCard = ({
@@ -21,7 +27,7 @@ const ProjectCard = ({
 
   return (
     <motion.div
-      className="relative group overflow-hidden rounded-xl bg-gray-800 shadow-2xl"
+      className=" relative group overflow-hidden rounded-xl bg-gray-800 shadow-2xl"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -34,7 +40,7 @@ const ProjectCard = ({
       onHoverEnd={() => setIsHovered(false)}
     >
       {/* Project Image with overlay */}
-      <div className="relative h-56 md:h-64 w-full overflow-hidden">
+      <div className="relative h-56 md:h-36 w-full overflow-hidden">
         <motion.div
           className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70 z-10"
           animate={{ opacity: isHovered ? 0.85 : 0.7 }}
@@ -169,14 +175,31 @@ const Projects = () => {
   // Sample project data (you can replace with your own)
   const projectsData = [
     {
+      title: "MilesOfSmile",
+      description:
+        "A responsive user-friendly school website showcasing information events,and admissions with vibrant design and user-friendly navigation.",
+      techStack: "React, Tailwind, Emailjs",
+      liveLink: "https://www.milesofsmile.com.au/",
+      githubLink: "https://github.com/Mani-Tyagi-1/MilesOfSmiles",
+      image: Milesofsmiles,
+    },
+    {
+      title: "Modrika",
+      description:
+        "A responsive user-friendly school website showcasing information events, and admissions with vibrant design and user-friendly navigation.",
+      techStack: "React, Tailwind, Emailjs",
+      liveLink: "https://modricka.realyx.cz/",
+      // githubLink: "https://github.com/Mani-Tyagi-1/Modrika",
+      image: Modrika,
+    },
+    {
       title: "Imaginify",
       description:
         "An AI image generation and management app with advanced features for content creators.",
       techStack: "React, Tailwind, Node.js, MongoDB, Cloudinary",
       liveLink: "https://imaginify-chi-two.vercel.app/",
       githubLink: "https://github.com/Mani-Tyagi-1/Imaginify",
-      image:
-        Imaginify,
+      image: Imaginify,
     },
     {
       title: "E-Bharat",
@@ -185,8 +208,7 @@ const Projects = () => {
       techStack: "React, Tailwind, Firebasr, Firebase Auth ",
       liveLink: "https://e-commerce-eight-ruddy.vercel.app/",
       githubLink: "https://github.com/Mani-Tyagi-1/ECommerce",
-      image:
-        EBharat,
+      image: EBharat,
     },
     {
       title: "Dev Detective",
@@ -195,8 +217,7 @@ const Projects = () => {
       techStack: "HTML, CSS, JS, APIs",
       liveLink: "devdetective11.netlify.app",
       githubLink: "https://github.com/Mani-Tyagi-1/DevDetective",
-      image:
-        Dev,
+      image: Dev,
     },
   ];
 
@@ -299,11 +320,24 @@ const Projects = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <Swiper
+          modules={[Autoplay]}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          loop={true}
+          spaceBetween={20}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 5 },
+          }}
+          className="w-full"
+        >
           {projectsData.map((project, index) => (
-            <ProjectCard key={index} {...project} index={index} />
+            <SwiperSlide key={index}>
+              <ProjectCard {...project} index={index} />
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
 
         <motion.div
           className="mt-16 text-center"
@@ -347,18 +381,15 @@ const Projects = () => {
               }}
             />
           </motion.div> */}
-
-          
         </motion.div>
       </div>
 
-
-       <motion.div
-              className="h-2  w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent mt-12"
-              initial={{ scaleX: 0, opacity: 0 }}
-              whileInView={{ scaleX: 1, opacity: 0.5 }}
-              transition={{ duration: 1.2 }}
-            />
+      <motion.div
+        className="h-2  w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent mt-12"
+        initial={{ scaleX: 0, opacity: 0 }}
+        whileInView={{ scaleX: 1, opacity: 0.5 }}
+        transition={{ duration: 1.2 }}
+      />
     </section>
   );
 };

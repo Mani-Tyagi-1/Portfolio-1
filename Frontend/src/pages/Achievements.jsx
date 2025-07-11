@@ -290,7 +290,7 @@ const Achievements = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+        className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
       >
         <div className="text-center mb-16">
           <motion.h1
@@ -522,7 +522,7 @@ const Achievements = () => {
 
             {/* Main grid of platform cards */}
             <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6"
               variants={{
                 hidden: { opacity: 0 },
                 show: {

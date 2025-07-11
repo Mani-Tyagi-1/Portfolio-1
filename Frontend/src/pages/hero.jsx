@@ -80,7 +80,7 @@ const Hero = () => {
           />
         ))}
 
-        <div className="container mx-auto px-6 relative z-10  hidden md:block">
+        <div className="container mx-auto px-14 relative z-10  hidden md:block">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div
               initial="hidden"
